@@ -40,20 +40,20 @@ class MultiplyByFactor(BaseTransformer):
         df[self.output_items[i]] = df[input_item] * self.factor
         return df
       
-@classmethod
-    def build_ui(cls):
-        #define arguments that behave as function inputs
-        inputs = []
-        inputs.append(ui.UIMultiItem(
-                name = 'input_items',
-                datatype=float,
-                description = "Input items to be adjusted",
-                output_item = 'output_items',
-                is_output_datatype_derived = True)
-                      )        
-        inputs.append(ui.UISingle(
-                name = 'factor',
-                datatype=float)
-                      )
-        outputs = []
-        return (inputs,outputs)   
+    @classmethod
+        def build_ui(cls):
+            #define arguments that behave as function inputs
+            inputs = []
+            inputs.append(ui.UIMultiItem(
+                    name = 'input_items',
+                    datatype=float,
+                    description = "Input items to be adjusted",
+                    output_item = 'output_items',
+                    is_output_datatype_derived = True)
+                          )        
+            inputs.append(ui.UISingle(
+                    name = 'factor',
+                    datatype=float)
+                          )
+            outputs = []
+            return (inputs,outputs)   
