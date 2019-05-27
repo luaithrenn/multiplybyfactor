@@ -1,4 +1,4 @@
-Package_URL = 'git+https://github.com/luaithrenn/multiplybyfactor.git'
+PACKAGE_URL = 'git+https://github.com/luaithrenn/multiplybyfactor.git@'
 #URL of the package repository.
     
 import datetime as dt
@@ -20,7 +20,7 @@ class MultiplyByFactor(BaseTransformer):
     Multiply input items by a factor to produce a result
     '''
     
-    url = Package_URL
+    url = PACKAGE_URL
 
      
     def __init__(self, input_items, factor, output_items):
@@ -41,19 +41,19 @@ class MultiplyByFactor(BaseTransformer):
         return df
       
     @classmethod
-        def build_ui(cls):
-            #define arguments that behave as function inputs
-            inputs = []
-            inputs.append(ui.UIMultiItem(
-                    name = 'input_items',
-                    datatype=float,
-                    description = "Input items to be adjusted",
-                    output_item = 'output_items',
-                    is_output_datatype_derived = True)
-                          )        
-            inputs.append(ui.UISingle(
-                    name = 'factor',
-                    datatype=float)
-                          )
-            outputs = []
-            return (inputs,outputs)   
+    def build_ui(cls):
+        #define arguments that behave as function inputs
+        inputs = []
+        inputs.append(ui.UIMultiItem(
+                name = 'input_items',
+                datatype=float,
+                description = "Input items to be adjusted",
+                output_item = 'output_items',
+                is_output_datatype_derived = True)
+                      )        
+        inputs.append(ui.UISingle(
+                name = 'factor',
+                datatype=float)
+                      )
+        outputs = []
+        return (inputs,outputs)   
